@@ -25,7 +25,7 @@ exports.put = async (req, res, next) => {
           apelido: req.body.apelido
         });
     
-        await participante.save();
+        await participante.update(participante);
     
         res.status(202).send({message: 'Participante atualizado com sucesso!'});
       } catch (e) {
