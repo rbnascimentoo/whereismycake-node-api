@@ -11,6 +11,7 @@ const cors = require('cors');
 // Load models
 const Participante = require('./models/participante');
 const Sorteio = require('./models/sorteio');
+const Cake = require('./models/cake');
 
 //db
 mongoose.connect(process.env.DATABASE_CONNECTION_STRING, {
@@ -53,8 +54,10 @@ app.use(cors({
 const index = require('./routes/index');
 const participanteRoute = require('./routes/participanteRoute');
 const sorteioRoute = require('./routes/sorteioRoute');
+const cakeRoute = require('./routes/cakeRoute');
 app.use('/', index);
 app.use('/api/whereismycake/participante', participanteRoute);
 app.use('/api/whereismycake/sorteio', sorteioRoute);
+app.use('/api/whereismycake/cake', cakeRoute);
 
 module.exports = app;

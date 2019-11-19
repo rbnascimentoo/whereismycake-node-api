@@ -17,7 +17,11 @@ const schema = new Schema({
   participanteId: {
       type: String,
       required: true
-  }
+  },
+  cakeId: {
+    type: String,
+    required: true
+}
 });
 
 module.exports = mongoose.model('Sorteio', schema);

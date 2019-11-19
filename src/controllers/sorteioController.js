@@ -8,7 +8,8 @@ exports.post = async (req, res, next) => {
           data: req.body.data,
           rodada: req.body.rodada,
           numeroSorteio: req.body.numeroSorteio,
-          participanteId: req.body.participante._id
+          participanteId: req.body.participante._id,
+          cakeId: req.body.cake._id
         });
     
         await sorteio.save();
