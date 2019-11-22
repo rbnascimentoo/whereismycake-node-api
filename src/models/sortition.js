@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const schema = new Schema({
-  data: {
+  date: {
     type: Date,
     required: true
   },
@@ -10,18 +10,20 @@ const schema = new Schema({
     type: Number,
     required: true
   },
-  numeroSorteio: {
+  numberSortition: {
     type: Number,
     required: true
   },
-  participanteId: {
-      type: String,
-      required: true
+  participantId: {
+      type: Schema.ObjectId,
+      required: true,
+      ref: 'Participant' 
   },
   cakeId: {
-    type: String,
-    required: true
+    type: Schema.ObjectId,
+    required: true,
+    ref: 'Cake'
 }
 });
 
-module.exports = mongoose.model('Sorteio', schema);
+module.exports = mongoose.model('Sortition', schema);

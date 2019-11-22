@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Cake = mongoose.model('Cake');
 
-exports.post = async (req, res, next) => {
+exports.save = async (req, res, next) => {
     try {
         const cake = new Cake({
           name: req.body.name,
@@ -19,7 +19,7 @@ exports.post = async (req, res, next) => {
     };
 };
 
-exports.put = async (req, res, next) => {
+exports.update = async (req, res, next) => {
     try {
         const cake = new Cake({
           _id: req.params.id,
@@ -47,7 +47,7 @@ exports.delete = async (req, res, next) => {
     };
 };
 
-exports.get = async (req, res, next) => {
+exports.find = async (req, res, next) => {
     try {
       const data = await Cake.findById(req.params.id);
       res.status(200).send(data);
@@ -56,7 +56,7 @@ exports.get = async (req, res, next) => {
   };
 };
 
-exports.getall = async (req, res, next) => {
+exports.findAll = async (req, res, next) => {
     try {
         const data = await Cake.find({});
         res.status(200).send(data);

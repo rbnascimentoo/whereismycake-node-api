@@ -4,13 +4,12 @@ require('dotenv').config();
 const bodyParser = require('body-parser');
 const app = express();
 const mongoose = require('mongoose');
-require('dotenv').config();
 const router = express.Router();
 const cors = require('cors');
 
 // Load models
-const Participante = require('./models/participante');
-const Sorteio = require('./models/sorteio');
+const Participante = require('./models/participant');
+const Sorteio = require('./models/sortition');
 const Cake = require('./models/cake');
 
 //db
@@ -52,12 +51,12 @@ app.use(cors({
 
 // routes
 const index = require('./routes/index');
-const participanteRoute = require('./routes/participanteRoute');
-const sorteioRoute = require('./routes/sorteioRoute');
+const participantRoute = require('./routes/participantRoute');
+const sortitionRoute = require('./routes/sortitionRoute');
 const cakeRoute = require('./routes/cakeRoute');
 app.use('/', index);
-app.use('/api/whereismycake/participante', participanteRoute);
-app.use('/api/whereismycake/sorteio', sorteioRoute);
+app.use('/api/whereismycake/participant', participantRoute);
+app.use('/api/whereismycake/sortition', sortitionRoute);
 app.use('/api/whereismycake/cake', cakeRoute);
 
 module.exports = app;
