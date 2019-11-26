@@ -24,7 +24,7 @@ exports.save = async (req, res, next) => {
 exports.findAll = async (req, res, next) => {
     try {
         const data = await Sortition.find({})
-        .maxScan(rodada)
+        //.maxScan(rodada)
         .populate('participantId')
         .populate('cakeId')
         .sort({numberSortition: -1});
