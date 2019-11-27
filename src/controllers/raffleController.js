@@ -1,29 +1,30 @@
 const mongoose = require('mongoose');
-const Sortition = mongoose.model('Sortition');
-const Participant = mongoose.model('Participant');
+const Raffle = mongoose.model('Raffle');
 
 exports.save = async (req, res, next) => {
     try {
-        const sortition = new Sortition({
+        const raffle = new Raffle({
           date: req.body.date,
           rodada: req.body.rodada,
-          numberSortition: req.body.numberSortition,
+          numberRaffle: req.body.numberRaffle,
           participantId: req.body.participantId,
           cakeId: req.body.cakeId
         });
 
-        await sortition.save();
+        console.log(raffle);
+
+        await raffle.save();
     
-        res.status(201).send({message: 'Sortition has save sucess!'});
+        res.status(201).send({message: 'raffle has save sucess!'});
       } catch (e) {
-        res.status(500).send({message: 'Fail to save Sortition.'});
+        res.status(500).send({message: 'Fail to save raffle.'});
       
     };
 };
 
 exports.findAll = async (req, res, next) => {
     try {
-        const data = await Sortition.find({})
+        const data = await Raffle.find({})
         //.maxScan(rodada)
         .populate('participantId')
         .populate('cakeId')
@@ -33,15 +34,15 @@ exports.findAll = async (req, res, next) => {
 
         res.status(200).send(data);
       } catch (e) {
-        res.status(500).send({message: 'Fail to load Sortitions.'});
+        res.status(500).send({message: 'Fail to load raffles.'});
     };
 };
 
 exports.delete = async (req, res, next) => {
   try {
-      const data = await Sortition.findByIdAndRemove(req.params.id);
+      const data = await Raffle.findByIdAndRemove(req.params.id);
       res.status(204).send(data);
     } catch (e) {
-      res.status(500).send({message: 'Fail to delete sortition.'});
+      res.status(500).send({message: 'Fail to delete raffle.'});
   };
 };

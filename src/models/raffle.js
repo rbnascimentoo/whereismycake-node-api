@@ -10,7 +10,7 @@ const schema = new Schema({
     type: Number,
     required: true
   },
-  numberSortition: {
+  numberRaffle: {
     type: Number,
     required: true
   },
@@ -26,4 +26,4 @@ const schema = new Schema({
 }
 });
 
-module.exports = mongoose.model('Sortition', schema);
+module.exports = mongoose.model('Raffle', schema);

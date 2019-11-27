@@ -4,7 +4,7 @@
   "description": "Where is my cake API",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon bin/server.js",
+    "devStart": "nodemon bin/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Rafael Nascimento",

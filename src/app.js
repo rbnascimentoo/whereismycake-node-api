@@ -9,7 +9,7 @@ const cors = require('cors');
 
 // Load models
 const Participante = require('./models/participant');
-const Sorteio = require('./models/sortition');
+const Raffle = require('./models/raffle');
 const Cake = require('./models/cake');
 
 //db
@@ -52,11 +52,11 @@ app.use(cors({
 // routes
 const index = require('./routes/index');
 const participantRoute = require('./routes/participantRoute');
-const sortitionRoute = require('./routes/sortitionRoute');
+const raffleRoute = require('./routes/raffleRoute');
 const cakeRoute = require('./routes/cakeRoute');
 app.use('/', index);
 app.use('/api/whereismycake/participant', participantRoute);
-app.use('/api/whereismycake/sortition', sortitionRoute);
+app.use('/api/whereismycake/raffle', raffleRoute);
 app.use('/api/whereismycake/cake', cakeRoute);
 
 module.exports = app;
